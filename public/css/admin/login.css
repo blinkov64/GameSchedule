@@ -1,0 +1,31 @@
+.title
+{
+    font: 18px Verdana;
+    display: inline-block;
+    margin-bottom: 6%;
+}
+form input
+{
+    outline: none;
+    border: 2px solid #eee;
+    width: 60%;
+    padding: 2% 3%;
+    margin-bottom: 4%;
+    font: 14px Arial;
+}
+form input:focus
+{
+    border-color: grey;
+}
+form input[type="submit"]
+{
+    background: #fff;
+    color: grey;
+    font: 14px Verdana;
+}
+form input[type="submit"]:hover
+{
+    cursor: pointer;
+    border-color: orange;
+    color: orange;
+}

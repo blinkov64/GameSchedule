@@ -1,0 +1,35 @@
+.title
+{
+    font: 14px Verdana;
+    color: grey;
+}
+.content nav
+{
+    padding-bottom: 8%;
+}
+.content nav ul li
+{
+    list-style: none;
+    display: inline-block;
+    font: 18px Arial;
+    margin-left: 5%;
+}
+.content nav ul li a
+{
+    text-decoration: none;
+    color: black;
+}
+.content nav ul li a:hover
+{
+    color: orange;
+}
+.logout
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.logout:hover .logout-color
+{
+    fill: orange;
+}
