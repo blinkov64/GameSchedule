@@ -4,8 +4,16 @@ namespace Schedule\Controller;
 
 class Controller {
     
-    public function Check()
+    protected $pdo;
+    protected $view;
+    protected $router;
+    protected $container;
+
+    public function __construct($container)
     {
-        return 'check3';
+        $this->pdo = $container->pdo;
+        $this->view = $container->view;
+        $this->router = $container->router;
+        $this->container = $container;
     }
 }

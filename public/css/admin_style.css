@@ -1,0 +1,45 @@
+.header-logo
+{
+    position: relative;
+    padding-bottom: 3%;
+    border-bottom: 2px solid #eee;
+}
+.header-nav
+{
+    padding-top: 3%;
+}
+.header-nav nav
+{
+    padding-bottom: 8%;
+}
+.header-nav nav ul li
+{
+    list-style: none;
+    display: inline-block;
+    font: 18px Arial;
+    margin-left: 5%;
+}
+.header-nav nav ul li a
+{
+    text-decoration: none;
+    color: black;
+}
+.header-nav nav ul li a:hover
+{
+    color: orange;
+}
+.logout
+{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.logout:hover .logout-color
+{
+    fill: orange;
+}
+.title
+{
+    font: 14px Verdana;
+    color: grey;
+}

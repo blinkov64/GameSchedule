@@ -42,13 +42,3 @@ form input[type="submit"]:hover
 {
     color: red;
 }
-.logout
-{
-    position: absolute;
-    right: 0;
-    bottom: 0;
-}
-.logout:hover .logout-color
-{
-    fill: orange;
-}

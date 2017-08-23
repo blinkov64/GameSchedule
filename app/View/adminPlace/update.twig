@@ -1,0 +1,38 @@
+{% extends 'admin_layout.twig' %}
+
+{% block head_css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/public/css/adminPlace/update.css">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="title">Update Place #{{placeId}}</div>
+    <form method="post" action="/admin/place/update/{{placeId}}">
+        <label for="name">Name:</label>
+        <div><input type="text" value="{{place.name ? place.name : postData.name}}" id="name" name="name"></div>
+        <div class="error">
+            {{ err.name ? err.name }}
+        </div>
+        <label for="address">Address:</label>
+        <div><input type="text" value="{{ place.address ? place.address : postData.address}}" id="address" name="address"></div>
+        <div class="error">
+            {{ err.address ? err.address }}
+        </div>
+        <label for="active">Active:</label>
+        <div>
+            <input type="radio" name="active" value="1" 
+                {{ place.active == '1' ? 'checked' }}
+                {{ postData.active == '1' ? 'checked' }}
+            >Yes
+            <input type="radio" name="active" value="0" 
+                {{ place.active == '0' ? 'checked' }}
+                
+                {{ postData.active == '0' ? 'checked' }}
+            >No
+        </div>
+        <input type="submit" value="Update">
+        <input type="hidden" name="_METHOD" value="put">
+    </form>
+    
+{% endblock %}

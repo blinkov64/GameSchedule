@@ -2,6 +2,17 @@
 
 $container = $app->getContainer();
 
+$container['view'] = function ($container) {
+    $view = new \Slim\Views\Twig(ROOT.'/app/View', [
+        'cache' => false
+    ]);
+    
+    $basePath = rtrim(str_ireplace('index.php', '', $container['request']->getUri()->getBasePath()), '/');
+    $view->addExtension(new Slim\Views\TwigExtension($container['router'], $basePath));
+
+    return $view;
+};
+
 $container['pdo'] = function () {
     $dns = 'mysql: host=localhost;dbname=gameschedule';
     $options = [
@@ -12,7 +23,19 @@ $container['pdo'] = function () {
     return $pdo;
 };
 
-$container['ScheduleController'] = function ($container) {
+$container['auth'] = function ($container) {
+    return new \Schedule\Component\Auth($container);
+};
+
+$container['validation'] = function ($container) {
+    return new \Schedule\Component\Validation($container);
+};
+
+$container['placeRepository'] = function ($container) {
+    return new \Schedule\Model\Place\PlaceRepository($container);
+};
+
+/*$container['ScheduleController'] = function ($container) {
     return new \Schedule\Controller\ScheduleController();
 };
 
@@ -22,4 +45,4 @@ $container['AdminController'] = function ($container) {
 
 $container['AdminPlaceController'] = function ($container) {
     return new \Schedule\Controller\AdminPlaceController($container);
-};
+};*/

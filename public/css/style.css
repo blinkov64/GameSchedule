@@ -13,13 +13,13 @@
 header
 {
     padding-top: 3%;
-    padding-bottom: 3%;
+    /*padding-bottom: 3%;
     border-bottom: 2px solid #eee;
-    position: relative;
+    position: relative;*/
 }
 
 /* CONTENT */
 .content
 {
-    padding-top: 3%;
+    /*padding-top: 3%;*/
 }

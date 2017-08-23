@@ -1,6 +1,9 @@
 .content nav ul li .active-menu
 {
     color: orange;
+}.content a span
+{
+    margin-bottom: 3%;
 }
 .place-list
 {
@@ -66,7 +69,7 @@
 {
     fill: orange;
 }
-.logout
+/*.logout
 {
     position: absolute;
     right: 0;
@@ -75,4 +78,4 @@
 .logout:hover .logout-color
 {
     fill: orange;
-}
+}*/

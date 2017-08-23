@@ -1,0 +1,24 @@
+{% extends 'admin_layout.twig' %}
+
+{% block head_css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/public/css/adminPlace/create.css">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="title">Create Place</div>
+    <form method="post" action="/admin/place/create">
+        <label for="name">Name:</label>
+        <div><input type="text" id="name" name="name"></div>
+        <label for="address">Address:</label>
+        <div><input type="text" id="address" name="address"></div>
+        <label for="active">Active:</label>
+        <div>
+            <input type="radio" name="active" value="1" checked>Yes
+            <input type="radio" name="active" value="0">No
+        </div>
+        <input type="submit" value="Create">
+    </form>
+    
+{% endblock %}

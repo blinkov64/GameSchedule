@@ -1,0 +1,13 @@
+{% extends 'admin_layout.twig' %}
+
+{% block head_css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/public/css/admin/index.css">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="title">Welcome to Admin Panel, {{admin.login}}!</div>
+    <div class="title">Choose the item and manage!</div>
+    
+{% endblock %}
