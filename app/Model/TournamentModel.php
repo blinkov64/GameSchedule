@@ -1,12 +1,11 @@
 <?php
 
-namespace Schedule\Model\Place;
+namespace Schedule\Model;
 
-class PlaceModel {
+class TournamentModel {
     
     private $id;
     private $name;
-    private $address;
     private $active;
     
     public function getId()
@@ -14,18 +13,27 @@ class PlaceModel {
         return $this->id;
     }
     
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    
     public function getName()
     {
         return $this->name;
     }
     
-    public function getAddress()
+    public function setName($name)
     {
-        return $this->address;
+        $this->name = $name;
     }
-    
     public function getActive()
     {
         return $this->active;
+    }
+    
+    public function setActive($active)
+    {
+        $this->active = $active;
     }
 }

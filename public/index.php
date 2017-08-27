@@ -3,9 +3,9 @@
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-define('ROOT',dirname(__FILE__));
+define('ROOT', dirname(__DIR__));
 
-require 'vendor/autoload.php';
+require ROOT.'/vendor/autoload.php';
 
 $app = new \Slim\App([
         'settings' => [
@@ -13,11 +13,11 @@ $app = new \Slim\App([
         ]
 ]);
 
-require 'app/dependencies.php';
+require ROOT.'/app/dependencies.php';
 
-require 'app/middleware.php';
+//require ROOT.'/app/middleware.php';
 
-require 'app/routes.php';
+require ROOT.'/app/routes.php';
 
 $app->run();
 

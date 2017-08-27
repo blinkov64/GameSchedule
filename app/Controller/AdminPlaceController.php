@@ -8,6 +8,7 @@ use \Slim\Http\Response;
 use \Slim\Http\Request;
 //use Schedule\Model\PlaceModel;
 use \Respect\Validation\Validator;
+use \Schedule\Model\PlaceModel;
 
 class AdminPlaceController extends Controller{
     
@@ -25,26 +26,32 @@ class AdminPlaceController extends Controller{
     
     public function postCreate(Request $request, Response $response)
     {
-        $postData = $request->getParsedBody();
+        //$postData = $request->getParsedBody();
         //$place = (new PlaceModel($this->pdo))->createPlace($postData);
-        $place = $this->container->placeRepository->createPlace($postData);
+        $properties = $request->getParsedBody();
+        $placeModel = $this->container->createModel->create('PlaceModel', $properties);
+        $place = $this->container->placeRepository->createPlace($placeModel);
         return $response->withRedirect($this->router->pathFor('place'));
     }
     
-    public function getUpdate(Request $request, Response $response)
+    public function getUpdate(Request $request, Response $response, $args)
     {
-        $placeId = $request->getAttribute('id');
+        $placeId = $args['id'];
+        $properties['id'] = $placeId;
         //$place = (new PlaceModel($this->pdo))->getPlace($placeId);
-        $place = $this->container->placeRepository->getPlace($placeId);
+        /*$placeModel = new PlaceModel;
+        $placeModel->setId($placeId);*/
+        $placeModel = $this->container->createModel->create('PlaceModel', $properties);
+        $place = $this->container->placeRepository->getPlace($placeModel);
         $this->view->render($response, 'adminPlace/update.twig',
                 compact('placeId', 'place'));
     }
     
-    public function putUpdate(Request $request, Response $response)
+    public function putUpdate(Request $request, Response $response, $args)
     {
         $postData = $request->getParsedBody();
         
-        $placeId = $request->getAttribute('id');
+        $placeId = $args['id'];
         
         if($postData)
         {
@@ -57,8 +64,16 @@ class AdminPlaceController extends Controller{
             
             if(!$err)
             {
+                /*$placeModel = new PlaceModel;
+                $placeModel->setId($placeId);
+                $placeModel->setName($postData['name']);
+                $placeModel->setAddress($postData['address']);
+                $placeModel->setActive($postData['active']);*/
                 //$place = (new PlaceModel($this->pdo))->updatePlace($placeId, $postData);
-                $place = $this->container->placeRepository->updatePlace($placeId, $postData);
+                $properties = $postData;
+                $properties['id'] = $placeId;
+                $placeModel = $this->container->createModel->create('PlaceModel', $properties);
+                $place = $this->container->placeRepository->updatePlace($placeModel);
                 return $response->withRedirect($this->router->pathFor('place'));
             }
             

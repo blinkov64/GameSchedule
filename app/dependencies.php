@@ -3,7 +3,7 @@
 $container = $app->getContainer();
 
 $container['view'] = function ($container) {
-    $view = new \Slim\Views\Twig(ROOT.'/app/View', [
+    $view = new \Slim\Views\Twig(ROOT.'/View', [
         'cache' => false
     ]);
     
@@ -32,9 +32,28 @@ $container['validation'] = function ($container) {
 };
 
 $container['placeRepository'] = function ($container) {
-    return new \Schedule\Model\Place\PlaceRepository($container);
+    return new \Schedule\Model\Repository\PlaceRepository($container);
 };
 
+$container['createModel'] = function ($container) {
+    return new \Schedule\Component\CreateModel($container);
+};
+
+$container['tournamentRepository'] = function ($container) {
+    return new \Schedule\Model\Repository\TournamentRepository($container);
+};
+
+$container['uploadFile'] = function () {
+    return new \Schedule\Component\UploadFile();
+};
+
+$container['teamRepository'] = function ($container) {
+    return new \Schedule\Model\Repository\TeamRepository($container);
+};
+
+$container['gameRepository'] = function ($container) {
+    return new \Schedule\Model\Repository\GameRepository($container);
+};
 /*$container['ScheduleController'] = function ($container) {
     return new \Schedule\Controller\ScheduleController();
 };

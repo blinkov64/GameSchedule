@@ -1,0 +1,76 @@
+.content nav ul li .active-menu
+{
+    color: orange;
+}.content a span
+{
+    margin-bottom: 3%;
+}
+.place-list
+{
+    display: table;
+    width: 100%;
+    margin-top: 12%;
+}
+.place-list-title
+{
+    display: table-row;
+    font: 16px Verdana;
+    color: grey;
+}
+.place-list-item
+{
+    display: table-row;
+    font: 16px Tahoma;
+}
+.place-list-title div, .place-list-item div
+{
+    display: table-cell;
+}
+.place-list-title div
+{
+    padding-bottom: 1%;
+}
+.place-list-item div
+{
+    padding-top: 2%;
+    padding-bottom: 1%;
+    border-bottom: 2px solid #eee;
+    vertical-align: middle;
+}
+.place-list-item div:nth-child(5n)
+{
+    border-bottom: none;
+}
+.edit-icon:hover
+{
+    cursor: pointer;   
+}
+.edit-icon:hover .edit-icon-color
+{
+    fill: orange;
+}
+.create-icon:hover
+{
+    cursor: pointer;
+}
+.create-place
+{
+    display: inline-block;
+    float: left;
+    font: 16px Verdana;
+    color: black;
+}
+.create-place:hover
+{
+    cursor: pointer;
+    color: orange;
+    text-align: left;
+}
+.create-place:hover .create-icon-color
+{
+    fill: orange;
+}
+.logo
+{
+    width: 40px;
+}

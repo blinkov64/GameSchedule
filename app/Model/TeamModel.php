@@ -1,12 +1,12 @@
 <?php
 
+
 namespace Schedule\Model;
 
-class PlaceModel {
+class TeamModel {
     
     private $id;
     private $name;
-    private $address;
     private $active;
     
     public function getId()
@@ -28,17 +28,6 @@ class PlaceModel {
     {
         $this->name = $name;
     }
-    
-    public function getAddress()
-    {
-        return $this->address;
-    }
-    
-    public function setAddress($address)
-    {
-        $this->address = $address;
-    }
-    
     public function getActive()
     {
         return $this->active;

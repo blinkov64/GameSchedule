@@ -1,0 +1,36 @@
+{% extends 'admin_layout.twig' %}
+
+{% block head_css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/public/css/adminTournament/update.css">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="title">Update Tournament #{{tournamenId}}</div>
+    <form method="post" action="/admin/tournament/update/{{tournamenId}}" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <div><input type="text" value="{{tournament.name ? tournament.name : postData.name}}" id="name" name="name"></div>
+        <div class="error">
+            {{ err.name ? err.name }}
+        </div>
+        <label for="logo">Logo:</label>
+        <div><img src="/public/images/tournament/{{tournamenId}}.png" class="logo"></div>
+        <div><input type="file" id="logo" name="logo"></div>
+        <label for="active">Active:</label>
+        <div>
+            <input type="radio" name="active" value="1" 
+                {{ tournament.active == '1' ? 'checked' }}
+                {{ postData.active == '1' ? 'checked' }}
+            >Yes
+            <input type="radio" name="active" value="0" 
+                {{ tournament.active == '0' ? 'checked' }}
+                
+                {{ postData.active == '0' ? 'checked' }}
+            >No
+        </div>
+        <input type="submit" value="Update">
+        <input type="hidden" name="_METHOD" value="put">
+    </form>
+    
+{% endblock %}

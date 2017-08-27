@@ -1,0 +1,24 @@
+{% extends 'admin_layout.twig' %}
+
+{% block head_css %}
+    {{ parent() }}
+    <link rel="stylesheet" href="/public/css/adminTournament/create.css">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="title">Create Tournament</div>
+    <form method="post" action="/admin/tournament/create" enctype="multipart/form-data">
+        <label for="name">Name:</label>
+        <div><input type="text" id="name" name="name"></div>
+        <label for="logo">Logo:</label>
+        <div><input type="file" id="logo" name="logo"></div>
+        <label for="active">Active:</label>
+        <div>
+            <input type="radio" name="active" value="1" checked>Yes
+            <input type="radio" name="active" value="0">No
+        </div>
+        <input type="submit" value="Create">
+    </form>
+    
+{% endblock %}
